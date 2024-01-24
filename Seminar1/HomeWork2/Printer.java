@@ -6,7 +6,7 @@ class Answer {
 
     public void printPrimeNums(){
       // Напишите свое решение ниже
-      int[] prime_nums = new int[Convert.ToInt32.Random(1001)];
+      int[] prime_nums = 0;
       for(int i = 2; i <= 1000; i++){
         if (i == 2){
           prime_nums[i] = i;
