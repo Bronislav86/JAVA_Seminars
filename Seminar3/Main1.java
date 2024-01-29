@@ -1,10 +1,10 @@
 package Seminar3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
+import java.util.Random;
 
-import Convert.ToInt32.Random;
 
 /*
 Заполнить список десятью случайными числами. 
@@ -18,12 +18,13 @@ public class Main1 {
 
         ArrayList<Integer> list = new ArrayList<Integer>();
         Random random = new Random();
-
-        for(int i = 0; i < 10; i++){
-            list.add(random.nextInt(0, 5));
+        for (int i = 0; i < 10; i++) {
+        list.add(random.nextInt(1,20));
         } 
         System.out.println(list);
         list.sort(Comparator.reverseOrder());
+        System.out.println(list);
+        Collections.sort(list);
         System.out.println(list);
 
     }

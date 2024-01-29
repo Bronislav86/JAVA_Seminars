@@ -14,6 +14,7 @@ class Answer {
                 String part = partQuery[i];
                 part = part.replaceAll("[{}\"]", "");
                 String[] partPart = part.split(":");
+                System.out.println(part);
                 stringBuilder.append(partPart[0]);
                 stringBuilder.append("=");
                 if (!partPart[1].matches("[0-9]*")){
@@ -27,7 +28,6 @@ class Answer {
                 stringBuilder.append(" and");
             }
         }
-
         stringBuilder.delete(stringBuilder.length() - 4, stringBuilder.length());
 
         return stringBuilder;
@@ -45,7 +45,7 @@ public class Printer{
       if (args.length == 0) {
         // При отправке кода на Выполнение, вы можете варьировать эти параметры
         QUERY = "select * from students where ";
-	    PARAMS = "{\"name\":\"Ivanov\", \"country\":\"Russia\", \"city\":\"null\", \"age\":\"18\"} ";
+	    PARAMS = "{\"name\":\"Ivanov\", \"country\":\"Russia\", \"city\":\"null\", \"age\":\"19\"} ";
       }
       else{
         QUERY = args[0];

@@ -10,36 +10,58 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 class BubbleSort {
-    private static File log;
-    private static FileWriter fileWriter;
-    String logPath = "D:/БрониДоки/Обучение 1С Разработчик/Block2/Java знакомство и как пользоваться базовым API/Seminars/Seminar2/HomeWork2/log.txt";
+  private static FileWriter fileWriter;
 
-  static void logger(String logPath, int[] arr){
-    Date currentDate = new Date();
-    SimpleDateFormat formatter = new SimpleDateFormat("YYY-MM-dd hh:mm");
-    String date = formatter.format(currentDate);
-    StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append(date + " ");
-    stringBuilder.append(arr);
-    
-    // try(FileWriter fileWriter = new FileWriter(logPath, true)){
-    //   fileWriter.write(stringBuilder);
-    //   fileWriter.write('\n');
-    // } catch(IOException e){
-    //     e.printStackTrace();
-    // } 
-    
+    static void createLog() {    
+      try {
+        fileWriter = new FileWriter("log.txt", false);
+      } catch(IOException e){
+          e.printStackTrace();
+      }    
+    }
+
+    static void closeLog() {
+      try {
+        fileWriter.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+
+  public void sort (int[] mas) {
+    createLog();
+    bubbleSort(mas);
+    closeLog();
   }
   
-    public static void sort(int[] mas) {
-      for (int i = 0; i < mas.length - 1; i++) {
-        for(int j = 0; j < mas.length - i - 1; j++) {
-            if(mas[j + 1] < mas[j]) {
-                int temp = mas[j];
-                mas[j] = mas[j + 1];
-                mas[j + 1] = temp;
+  private static int[] bubbleSort(int[] mas) {
+    boolean isSorted = false;
+    int buffer;
+
+    while (!isSorted) {
+        isSorted = true;
+        for (int i = 0; i < mas.length - 1; i++) {
+            if (mas[i] > mas[i + 1]) {
+                isSorted = false;
+
+                buffer = mas[i];
+                mas[i] = mas[i + 1];
+                mas[i + 1] = buffer;
             }
         }
+      log(Arrays.toString(mas));
+    }
+    return mas;
+  }
+
+    static void log(String note) {
+      try {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String timestamp = dateFormat.format(new Date());
+        fileWriter.write(timestamp + " " + note + "\n");
+        fileWriter.flush();
+      } catch (IOException e) {
+        e.printStackTrace();
       }
     }
 }
@@ -72,3 +94,21 @@ public class Printer{
         }
     }
 }
+
+
+// 2024-01-28 14:41 [4, 8, 3, 1, 9]
+// 2024-01-28 14:41 [4, 3, 1, 8, 9]
+// 2024-01-28 14:41 [3, 1, 4, 8, 9]
+// 2024-01-28 14:41 [1, 3, 4, 8, 9]
+// 2024-01-28 14:41 [1, 3, 4, 8, 9]
+
+// 2024-01-28 22:05 [4, 8, 3, 1, 9]
+// 2024-01-28 22:05 [4, 3, 1, 8, 9]
+// 2024-01-28 22:05 [3, 1, 4, 8, 9]
+// 2024-01-28 22:05 [1, 3, 4, 8, 9]
+// 2024-01-28 22:05 [1, 3, 4, 8, 9]
+
+// 2024-01-28 17:41 [4, 8, 3, 1, 9]
+// 2024-01-28 17:41 [4, 3, 1, 8, 9]
+// 2024-01-28 17:41 [3, 1, 4, 8, 9]
+// 2024-01-28 17:41 [1, 3, 4, 8, 9]
