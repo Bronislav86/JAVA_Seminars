@@ -7,7 +7,6 @@ package Seminar4;
  */
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
@@ -40,7 +39,7 @@ public class Main3 {
                     break;
             }
         }
-        
+        scanner.close();        
     }
 
 }

@@ -1,6 +1,5 @@
 package Seminar3.HomeWork1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 class MergeSort {

@@ -1,6 +1,5 @@
 package Seminar2.HomeWork1;
 
-import java.util.Arrays;
 
 class Answer {  
     public StringBuilder answer(String QUERY, String PARAMS){

@@ -1,6 +1,5 @@
 package Seminar2.HomeWork2;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;

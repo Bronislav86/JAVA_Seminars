@@ -1,12 +1,11 @@
 package HomeWork2;
 
-import java.util.Random;
 
 class Answer {
 
     public void printPrimeNums(){
       // Напишите свое решение ниже
-      int[] prime_nums = 0;
+      int[] prime_nums = new int[1000];
       for(int i = 2; i <= 1000; i++){
         if (i == 2){
           prime_nums[i] = i;

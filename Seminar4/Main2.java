@@ -31,6 +31,7 @@ public class Main2 {
                     break;
                 default:
                     list.add(num, text);
+                    scanner.close();
             }
         }
 

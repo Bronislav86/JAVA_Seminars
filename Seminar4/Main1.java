@@ -1,5 +1,6 @@
+package Seminar4;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
 2) Замерьте время, за которое в LinkedList добавятся 10000 элементов. Сравните с предыдущим.
  */
 public class Main1 {
+    
     public static void main(String[] args) {
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new LinkedList<>();
@@ -32,7 +34,7 @@ public class Main1 {
         long sum = 0;
         long timeStart = System.currentTimeMillis();
         for (Integer integer : list) {
-            sum += integer;
+            sum = sum + integer;
         }
         long timeFinish = System.currentTimeMillis();
         System.out.println(list.getClass().getSimpleName() + ": " + (timeFinish - timeStart));
